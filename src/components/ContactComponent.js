@@ -18,9 +18,8 @@ class Contact extends Component {
 
     }
 
-    handleSubmit(values) {
-        console.log("Current State is: " + JSON.stringify(values));
-        alert("Current State is: " + JSON.stringify(values));
+    handleSubmit(feedback) {
+        this.props.postFeedback(feedback);
         this.props.resetFeedbackForm();
     }
 
@@ -68,7 +67,7 @@ class Contact extends Component {
                         <h3>Send us Your Feedback</h3>
                     </div>
                     <div className="col-12 col-md-9">
-                        <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
+                        <Form model="feedback" onSubmit={(feedback) => this.handleSubmit(feedback)}>
                             <Row className="form-group">
                                 <Label htmlFor="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
@@ -125,7 +124,7 @@ class Contact extends Component {
                                          />
                                     <Errors 
                                         className="text-danger"
-                                        model=".lastname"
+                                        model=".telnum"
                                         show="touched"
                                         messages={{
                                             required: 'Required',
@@ -148,7 +147,7 @@ class Contact extends Component {
                                     />
                                     <Errors 
                                         className="text-danger"
-                                        model=".lastname"
+                                        model=".email"
                                         show="touched"
                                         messages={{
                                             required: 'Required',
